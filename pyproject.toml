@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scec"
+version = "0.1.0"
+description = "Structure-Conditioned Entropy Coding for complete acoustic emission waveforms"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy==2.2.6",
+  "scipy==1.15.3",
+  "torch==2.11.0",
+  "constriction==0.5.0",
+  "zstandard>=0.23,<1",
+]
+
+[project.optional-dependencies]
+fast = ["numba==0.61.2"]
+
+[tool.setuptools.packages.find]
+include = ["scec*"]
+
+[tool.setuptools.package-data]
+scec = ["native/*.cpp", "native/*.h"]
